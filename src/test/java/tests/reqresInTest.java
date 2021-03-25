@@ -1,24 +1,14 @@
 package tests;
 
-import static org.hamcrest.CoreMatchers.notNullValue;
-import static org.hamcrest.Matchers.is;
-
-import io.qameta.allure.restassured.AllureRestAssured;
-import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.given;
+import static org.hamcrest.CoreMatchers.notNullValue;
+import static org.hamcrest.Matchers.is;
 import static utils.UtilsFile.readStringFromFile;
 
-public class reqresInTest {
-
-  @BeforeAll
-  static void setup() {
-    RestAssured.filters(new AllureRestAssured());
-    RestAssured.baseURI = "https://reqres.in/";
-  }
+public class reqresInTest extends TestBase {
 
   @Test
   public void testUserList() {
