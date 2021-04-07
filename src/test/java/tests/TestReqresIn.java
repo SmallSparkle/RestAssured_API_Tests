@@ -8,7 +8,7 @@ import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.hamcrest.Matchers.is;
 import static utils.UtilsFile.readStringFromFile;
 
-public class reqresInTest extends TestBase {
+public class TestReqresIn extends TestBase {
 
   @Test
   public void testUserList() {
