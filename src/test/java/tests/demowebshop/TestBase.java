@@ -4,10 +4,11 @@ import com.codeborne.selenide.Configuration;
 import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.RestAssured;
 import org.junit.jupiter.api.BeforeAll;
-
+import tests.demowebshop.api.Auth;
 
 
 public class TestBase {
+  protected static final Auth auth = new Auth();
 
   @BeforeAll
   static void setup() {
