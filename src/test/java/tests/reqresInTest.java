@@ -16,8 +16,8 @@ public class reqresInTest extends TestBase {
             .when()
             .get("/api/users?page=2")
             .then()
-            .statusCode(200)
             .log().body()
+            .statusCode(200)
             .body("support.text",
                     is("To keep ReqRes free, contributions towards server costs are appreciated!"));
   }
@@ -30,8 +30,8 @@ public class reqresInTest extends TestBase {
             .when()
             .put("/api/users/2")
             .then()
-            .statusCode(200)
             .log().body()
+            .statusCode(200)
             .body("updatedAt",
                     is(notNullValue()));
   }
@@ -42,8 +42,8 @@ public class reqresInTest extends TestBase {
             .when()
             .delete("/api/users/2")
             .then()
-            .statusCode(204)
-            .log().body();
+            .log().body()
+            .statusCode(204);
 
   }
 
@@ -56,20 +56,20 @@ public class reqresInTest extends TestBase {
             .when()
             .post("/api/login")
             .then()
-            .statusCode(200)
             .log().body()
+            .statusCode(200)
             .body("token", is(notNullValue()));
   }
 
   @Test
   public void testUserNotFound() {
-given()
-        .when()
-        .get("/api/users/23")
-        .then()
-        .statusCode(404)
-        .log().body()
-        .body(is("{}"));
+    given()
+            .when()
+            .get("/api/users/23")
+            .then()
+            .log().body()
+            .statusCode(404)
+            .body(is("{}"));
   }
 
 
