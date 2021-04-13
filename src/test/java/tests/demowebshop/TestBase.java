@@ -4,7 +4,7 @@ import com.codeborne.selenide.Configuration;
 import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.RestAssured;
 import org.junit.jupiter.api.BeforeAll;
-import tests.demowebshop.api.Auth;
+import tests.demowebshop.apiHelper.Auth;
 
 
 public class TestBase {

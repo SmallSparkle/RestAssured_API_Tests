@@ -1,4 +1,4 @@
-package tests.demowebshop.api;
+package tests.demowebshop.apiHelper;
 
 import java.util.Map;
 

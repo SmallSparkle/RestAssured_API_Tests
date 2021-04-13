@@ -4,6 +4,7 @@ plugins {
 }
 
 repositories {
+    maven { url = "https://dl.bintray.com/qameta/maven-unstable/" }
     mavenCentral()
 }
 
@@ -25,9 +26,10 @@ dependencies {
             "org.aspectj:aspectjweaver:1.9.6",
             "com.codeborne:selenide:$selenideVersion",
             "io.qameta.allure:allure-selenide:$allureVersion",
-            "io.rest-assured:rest-assured:4.3.1",
             "io.qameta.allure:allure-java-commons:$allureVersion",
             "io.qameta.allure:allure-rest-assured:$allureVersion",
+            "io.qameta.allure:allure-ee-junit-platform:3.28.2",
+            "io.rest-assured:rest-assured:4.3.1",
             "org.junit.jupiter:junit-jupiter-api:$junitVersion")
     testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:$junitVersion"
 }
@@ -36,6 +38,18 @@ tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
 }
 
+tasks.withType(Test) {
+    systemProperties += System.properties
+    System.setProperty("junit.jupiter.extensions.autodetection.enabled", "true")
+}
+
 test {
     useJUnitPlatform()
+}
+
+task shop(type: Test) {
+    useJUnitPlatform {
+        excludeTags 'reqresIn'
+        includeTags 'shop'
+    }
 }

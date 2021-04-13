@@ -1,13 +1,14 @@
 package tests.reqresIn;
 
 import io.restassured.http.ContentType;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.hamcrest.Matchers.is;
 import static utils.UtilsFile.readStringFromFile;
-
+@Tag("reqresIn")
 public class TestReqresIn extends TestBase {
 
   @Test

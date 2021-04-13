@@ -2,6 +2,8 @@ package tests.demowebshop;
 
 import io.restassured.response.Response;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.given;
@@ -10,6 +12,8 @@ import static org.hamcrest.Matchers.is;
 class TestDemowebshop extends TestBase {
 
   @Test
+  @Tag("shop")
+  @DisplayName("Уведомление по email")
   void notifyByMail() {
     Response response =
             given()
@@ -27,6 +31,8 @@ class TestDemowebshop extends TestBase {
   }
 
   @Test
+  @Tag("shop")
+  @DisplayName("Добавить товар в корзину")
   void testAddCart() {
     Response response =
             given()
