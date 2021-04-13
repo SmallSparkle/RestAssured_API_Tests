@@ -13,12 +13,6 @@ public class TestBase {
 
   @BeforeAll
   static void setup() {
-    addListener("AllureSelenide", new AllureSelenide());
-    if (System.getProperty("remote_driver") != null) {
-      DesiredCapabilities capabilities = new DesiredCapabilities();
-      Configuration.browserCapabilities = capabilities;
-      Configuration.remote = System.getProperty("remote_driver");
-    }
     RestAssured.filters(new AllureRestAssured());
     RestAssured.baseURI = "https://reqres.in/";
   }
